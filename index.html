@@ -3,129 +3,124 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#06110b">
-  <meta name="description" content="Market breakdowns, trading ideas and educational discussion in one focused community.">
-  <title>Market Desk — Trading Community</title>
+  <meta name="theme-color" content="#050806">
+  <meta name="description" content="Market analysis, chart reviews and trader community discussion.">
+  <title>Market Desk — Trader Community</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307110b'/%3E%3Cpath d='M12 43l12-13 9 7 19-21' fill='none' stroke='%233df47d' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <link rel="preload" href="creative-a.jpg" as="image" type="image/jpeg">
   <style>
     :root {
       color-scheme: dark;
-      --green: #3df47d;
-      --ink: #050807;
-      --muted: #b5beb9;
+      --green: #36ed76;
+      --surface: #0a0e0b;
+      --muted: #aab4ad;
     }
 
     * { box-sizing: border-box; }
 
-    html, body { min-height: 100%; }
+    html { background: #030504; }
 
     body {
       margin: 0;
-      background: #030605;
+      min-width: 320px;
+      background: #030504;
       color: #fff;
       font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
 
     .page {
-      min-height: 100dvh;
+      min-height: 100svh;
       display: grid;
       place-items: center;
-      isolation: isolate;
-      position: relative;
     }
 
-    .backdrop {
-      position: fixed;
-      inset: -32px;
-      z-index: -2;
-      background: #06110b var(--hero-image) center / cover no-repeat;
-      filter: blur(32px) brightness(.25) saturate(1.2);
-      transform: scale(1.08);
+    .layout {
+      width: min(100%, 1120px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+      align-items: center;
+      gap: clamp(2rem, 6vw, 5rem);
+      padding: 28px;
     }
 
-    .backdrop::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, .5);
-    }
-
-    .hero-link {
-      width: min(100%, 36rem);
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
+    .image-link {
+      display: block;
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto;
       color: inherit;
       text-decoration: none;
-      background: var(--ink);
-      box-shadow: 0 0 70px rgba(0, 0, 0, .6);
-      cursor: pointer;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #080b09;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .48);
       -webkit-tap-highlight-color: transparent;
     }
 
     .creative {
-      width: 100%;
-      height: auto;
       display: block;
-      object-fit: cover;
+      width: auto;
+      max-width: 100%;
+      height: min(88svh, 900px);
+      object-fit: contain;
     }
 
-    .eyebrow {
-      position: absolute;
-      top: max(14px, env(safe-area-inset-top));
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      white-space: nowrap;
-      padding: .6rem .9rem;
-      border: 1px solid rgba(255, 255, 255, .24);
-      border-radius: 999px;
-      background: rgba(3, 8, 5, .74);
-      backdrop-filter: blur(12px);
-      font-size: .76rem;
+    .content { max-width: 390px; }
+
+    .label {
+      margin: 0 0 1rem;
+      color: var(--green);
+      font-size: .78rem;
+      line-height: 1.3;
       font-weight: 800;
-      letter-spacing: .12em;
+      letter-spacing: .13em;
       text-transform: uppercase;
     }
 
-    .copy {
-      position: absolute;
-      inset: auto 0 0;
-      z-index: 2;
-      padding: 6rem 1.25rem max(1rem, env(safe-area-inset-bottom));
-      text-align: center;
-      background: linear-gradient(transparent, rgba(0, 0, 0, .8) 64%, rgba(0, 0, 0, .96));
-      pointer-events: none;
+    h1 {
+      margin: 0;
+      max-width: 11ch;
+      font-size: clamp(2.35rem, 5vw, 4.7rem);
+      line-height: .98;
+      letter-spacing: -.055em;
     }
 
-    .hook {
-      margin: 0 0 .4rem;
-      font-size: clamp(1.05rem, 4.5vw, 1.4rem);
-      line-height: 1.08;
+    .intro {
+      margin: 1.35rem 0 1.7rem;
+      color: #d6ddd8;
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 56px;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
+      padding: 0 1.4rem;
+      border-radius: 12px;
+      background: var(--green);
+      color: #021006;
+      font-size: 1rem;
       font-weight: 900;
-      letter-spacing: -.025em;
-      text-transform: uppercase;
+      text-decoration: none;
     }
 
-    .hook span { color: var(--green); }
+    .button::after { content: "↗"; }
 
     .disclaimer {
-      margin: 0 auto;
-      max-width: 29rem;
+      margin: 1rem 0 0;
       color: var(--muted);
-      font-size: clamp(.76rem, 3vw, .88rem);
-      line-height: 1.35;
-      font-weight: 600;
+      font-size: .78rem;
+      line-height: 1.45;
     }
 
-    .hero-link:focus-visible {
-      outline: 4px solid var(--green);
-      outline-offset: -4px;
+    .image-link:focus-visible,
+    .button:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: 4px;
     }
 
     .setup-note {
@@ -136,7 +131,7 @@
       max-width: 34rem;
       margin: auto;
       padding: 1rem;
-      border: 1px solid rgba(61, 244, 125, .6);
+      border: 1px solid rgba(54, 237, 118, .6);
       border-radius: 14px;
       background: #08130d;
       box-shadow: 0 12px 40px #000;
@@ -147,39 +142,65 @@
 
     .setup-note.is-visible { display: block; }
 
-    @media (min-width: 640px) {
-      .hero-link {
-        min-height: min(100dvh, 64rem);
-        margin: 1.5rem 0;
-        border: 1px solid rgba(255, 255, 255, .1);
-        border-radius: 28px;
-        overflow: hidden;
+    @media (max-width: 760px) {
+      .page { display: block; }
+
+      .layout {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
       }
 
-      .creative { min-height: min(100dvh, 64rem); }
+      .image-link {
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .creative {
+        width: 100%;
+        height: auto;
+      }
+
+      .content {
+        width: 100%;
+        max-width: none;
+        padding: 1.6rem 1.25rem max(1.6rem, env(safe-area-inset-bottom));
+        background: var(--surface);
+      }
+
+      h1 {
+        max-width: 14ch;
+        font-size: clamp(2rem, 10vw, 3rem);
+      }
+
+      .intro { margin: 1rem 0 1.25rem; }
+      .button { width: 100%; }
     }
 
-    @media (prefers-reduced-motion: no-preference) {
-      .hero-link { animation: reveal .45s ease-out both; }
-      @keyframes reveal {
-        from { opacity: 0; transform: translateY(8px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
+    @media (min-width: 761px) and (max-height: 720px) {
+      .creative { height: calc(100svh - 40px); }
+      .layout { padding-block: 20px; }
     }
   </style>
 </head>
 <body>
   <main class="page">
-    <div class="backdrop" aria-hidden="true"></div>
+    <div class="layout">
+      <a class="image-link destination" href="#" aria-label="Open the trader community">
+        <img class="creative" src="creative-a.jpg" width="941" height="1672" fetchpriority="high" alt="Trader reviewing a market chart">
+      </a>
 
-    <a class="hero-link" id="heroLink" href="#" aria-label="Open the trading community">
-      <div class="eyebrow">Market analysis · Trader community</div>
-      <img class="creative" id="creative" src="creative-a.jpg" width="941" height="1672" alt="Trader reviewing a market chart and a highlighted price setup">
-      <div class="copy">
-        <p class="hook">Stop trading blind. <span>See the setup.</span></p>
-        <p class="disclaimer">Educational content only. Trading involves risk. Results are never guaranteed.</p>
-      </div>
-    </a>
+      <section class="content" aria-labelledby="pageTitle">
+        <p class="label">Market analysis · Trader community</p>
+        <h1 id="pageTitle">See the market clearly.</h1>
+        <p class="intro">Chart reviews, trading ideas and focused community discussion.</p>
+        <a class="button destination" href="#">Open Telegram</a>
+        <p class="disclaimer">Educational content only. Trading involves risk. Results are not guaranteed.</p>
+      </section>
+    </div>
   </main>
 
   <div class="setup-note" id="setupNote" role="status">
@@ -190,32 +211,21 @@
   <script>
     (() => {
       const config = window.LANDING_CONFIG || {};
-      const params = new URLSearchParams(window.location.search);
-      const forced = params.get("creative");
-      let stored = null;
-      try { stored = localStorage.getItem("market-desk-creative"); } catch (_) {}
-      const variant = forced === "1" || forced === "2"
-        ? forced
-        : (stored || (Math.random() < 0.5 ? "1" : "2"));
-
-      try { localStorage.setItem("market-desk-creative", variant); } catch (_) {}
-
-      const asset = variant === "2" ? "creative-b.jpg" : "creative-a.jpg";
-      const creative = document.getElementById("creative");
-      const heroLink = document.getElementById("heroLink");
+      const destinationLinks = document.querySelectorAll(".destination");
       const setupNote = document.getElementById("setupNote");
 
-      creative.src = asset;
-      document.documentElement.style.setProperty("--hero-image", `url("${asset}")`);
-
       if (config.destinationUrl && !config.destinationUrl.includes("REPLACE_ME")) {
-        heroLink.href = config.destinationUrl;
-        heroLink.rel = "noopener noreferrer";
+        destinationLinks.forEach((link) => {
+          link.href = config.destinationUrl;
+          link.rel = "noopener noreferrer";
+        });
       } else {
-        heroLink.addEventListener("click", (event) => {
-          event.preventDefault();
-          setupNote.classList.add("is-visible");
-          window.setTimeout(() => setupNote.classList.remove("is-visible"), 4500);
+        destinationLinks.forEach((link) => {
+          link.addEventListener("click", (event) => {
+            event.preventDefault();
+            setupNote.classList.add("is-visible");
+            window.setTimeout(() => setupNote.classList.remove("is-visible"), 4500);
+          });
         });
       }
     })();
