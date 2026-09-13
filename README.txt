@@ -1,23 +1,15 @@
-MARKET DESK — CLOUDFLARE READY
+FINAL CLEAN BUILD
 
-Destination: https://t.me/eeproinvest
+This archive contains exactly ONE image: creative.jpg.
+There are no creative-a.jpg / creative-b.jpg / creative-c.jpg files and no references to them.
+The page references the image only once in index.html:
+  src="./creative.jpg"
 
-Upload the ZIP file to Cloudflare Workers & Pages using "Upload your static files",
-or upload all files from the archive to the root of a GitHub repository.
+For GitHub / Cloudflare:
+1. Delete the old files from the repository (or replace the repository contents with this archive).
+2. Upload ALL files from this archive to the repository root.
+3. Make sure creative.jpg is in the same folder as index.html.
+4. Redeploy / wait for Cloudflare deployment to finish.
+5. Hard refresh the page (Ctrl+F5).
 
-Creative: creative-c.jpg (the "FREE MARKET TOOL" amber version). The old
-creative-a.jpg / creative-b.jpg are kept in the archive for reference only —
-delete them if you don't need them.
-
-Layout: a single premium card centered on a dark ambient background (soft
-amber glow + grain). The image sits on top with no text baked in for the
-button — the real "Get free access" button lives below it as its own
-pulsing, glowing element, so it renders sharp on every screen and stays
-clickable/trackable as a real link rather than a flat image area. Both the
-image and the button link to the destination above.
-
-Fully responsive: full-bleed-ish on small phones, a framed floating card
-from ~720px up. Fonts (Sora for headings/CTA, Inter for body) load from
-Google Fonts — no local font files needed.
-
-Important: advertising approval depends on the ad platform, account, region, targeting, destination and actual offer. The page avoids guaranteed-return language, but approval cannot be guaranteed.
+Destination URL is stored in config.js.
