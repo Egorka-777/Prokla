@@ -1,3 +1,3 @@
 window.LANDING_CONFIG = {
-  destinationUrl: "https://t.me/eeproinvest"
+  destinationUrl: "https://dub.sh/Hlkli4n"
 };
